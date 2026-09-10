@@ -1,5 +1,5 @@
-from App.Controllers.HomeController import HomeController
+from App.Controllers.welcome_controller import WelcomeController
 
 routes = {
-    "/": {"method": "GET", "class": HomeController, "function": "index"},
+    "/": {"method": "GET", "class": WelcomeController, "function": "index"},
 }

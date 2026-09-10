@@ -1,9 +1,9 @@
 from App.Helpers.view import View
 
-class HomeController:
+class WelcomeController:
     def index(self,request):
         name = request.query_params.get('name')
 
-        return View.render("home.html",{"name":name})
+        return View.renderJ("welcome.html",{"name":name})
 
         

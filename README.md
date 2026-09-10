@@ -22,8 +22,10 @@ The goal of this project is educational: understanding the internals of web fram
 * Route management
 * Controller dispatching
 * HTML view rendering
+* Jinja2 template engine support
 * Environment configuration
-* Lightweight and dependency-free core
+* Lightweight architecture
+* Minimal external dependencies
 
 ---
 
@@ -124,12 +126,12 @@ http://localhost:8000
 Example:
 
 ```python
-from App.Controllers.home_controller import HomeController
+from App.Controllers.welcome_controller import WelcomeController
 
 routes = {
     "/": {
         "method": "GET",
-        "class": HomeController,
+        "class": WelcomeController,
         "function": "index"
     }
 }
@@ -142,7 +144,7 @@ routes = {
 Example controller:
 
 ```python
-class HomeController:
+class WelcomeController:
 
     def index(self, request):
         return "Hello World"
@@ -155,10 +157,19 @@ class HomeController:
 Example:
 
 ```python
+#basic render template (only data text)
 return View.render(
-    "home.html",
+    "welcome.html",
     {
         "name": "Marco"
+    }
+)
+
+#jinja2 render template (accept list,dicts)
+return View.renderJ(
+    "welcome.html",
+    {
+        "name":name
     }
 )
 ```
