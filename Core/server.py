@@ -27,7 +27,7 @@ class Server:
             request.parse()
 
             #send request and get response
-            router = Router(request.path, request.method, self.environment,request)
+            router = Router(request.route, request.method, self.environment,request)
             response = router.dispatch()
 
             #response
